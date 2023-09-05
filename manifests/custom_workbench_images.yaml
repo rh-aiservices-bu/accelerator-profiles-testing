@@ -1,0 +1,108 @@
+---
+kind: ImageStream
+apiVersion: image.openshift.io/v1
+metadata:
+  name: custom-test-habana-fake-image-01
+  annotations:
+    opendatahub.io/notebook-image-name: Test Habana Fake Image 01
+    opendatahub.io/recommended-accelerators: '["habana.ai/gaudi"]'
+    opendatahub.io/notebook-image-creator: egranger@redhat.com
+    opendatahub.io/notebook-image-desc: >-
+      quay.io/opendatahub-contrib/workbench-images:cuda-jupyter-datascience-ubi9-py39_2023b_latest
+    opendatahub.io/notebook-image-url: >-
+      quay.io/opendatahub-contrib/workbench-images:cuda-jupyter-datascience-ubi9-py39_2023b_latest
+  namespace: redhat-ods-applications
+  labels:
+    app.kubernetes.io/created-by: byon
+    opendatahub.io/dashboard: 'true'
+    opendatahub.io/notebook-image: 'true'
+spec:
+  lookupPolicy:
+    local: true
+  tags:
+    - name: cuda-jupyter-datascience-ubi9-py39_2023b_latest
+      annotations:
+        opendatahub.io/notebook-python-dependencies: '[]'
+        opendatahub.io/notebook-software: '[]'
+        openshift.io/imported-from: >-
+          quay.io/opendatahub-contrib/workbench-images:cuda-jupyter-datascience-ubi9-py39_2023b_latest
+      from:
+        kind: DockerImage
+        name: >-
+          quay.io/opendatahub-contrib/workbench-images:cuda-jupyter-datascience-ubi9-py39_2023b_latest
+      importPolicy:
+        importMode: Legacy
+      referencePolicy:
+        type: Source
+---
+kind: ImageStream
+apiVersion: image.openshift.io/v1
+metadata:
+  name: custom-test-habana-fake-image-02
+  annotations:
+    opendatahub.io/notebook-image-name: Test Habana Fake Image 02
+    opendatahub.io/recommended-accelerators: '["habana.ai/gaudi2"]'
+    opendatahub.io/notebook-image-creator: egranger@redhat.com
+    opendatahub.io/notebook-image-desc: >-
+      quay.io/opendatahub-contrib/workbench-images:cuda-jupyter-datascience-ubi9-py39_2023b_latest
+    opendatahub.io/notebook-image-url: >-
+      quay.io/opendatahub-contrib/workbench-images:cuda-jupyter-datascience-ubi9-py39_2023b_latest
+  namespace: redhat-ods-applications
+  labels:
+    app.kubernetes.io/created-by: byon
+    opendatahub.io/dashboard: 'true'
+    opendatahub.io/notebook-image: 'true'
+spec:
+  lookupPolicy:
+    local: true
+  tags:
+    - name: cuda-jupyter-datascience-ubi9-py39_2023b_latest
+      annotations:
+        opendatahub.io/notebook-python-dependencies: '[]'
+        opendatahub.io/notebook-software: '[]'
+        openshift.io/imported-from: >-
+          quay.io/opendatahub-contrib/workbench-images:cuda-jupyter-datascience-ubi9-py39_2023b_latest
+      from:
+        kind: DockerImage
+        name: >-
+          quay.io/opendatahub-contrib/workbench-images:cuda-jupyter-datascience-ubi9-py39_2023b_latest
+      importPolicy:
+        importMode: Legacy
+      referencePolicy:
+        type: Source
+---
+
+# ---
+# kind: ImageStreamTag
+# apiVersion: image.openshift.io/v1
+# metadata:
+#   name: >-
+#     custom-test-habana-fake-image:cuda-jupyter-datascience-ubi9-py39_2023b_latest
+#   namespace: redhat-ods-applications
+#   labels:
+#     app.kubernetes.io/created-by: byon
+#     opendatahub.io/dashboard: 'true'
+#     opendatahub.io/notebook-image: 'false'
+#   annotations:
+#     opendatahub.io/notebook-python-dependencies: '[]'
+#     opendatahub.io/notebook-software: '[]'
+#     openshift.io/imported-from: >-
+#       quay.io/opendatahub-contrib/workbench-images:cuda-jupyter-datascience-ubi9-py39_2023b_latest
+# tag:
+#   name: cuda-jupyter-datascience-ubi9-py39_2023b_latest
+#   annotations:
+#     opendatahub.io/notebook-python-dependencies: '[]'
+#     opendatahub.io/notebook-software: '[]'
+#     openshift.io/imported-from: >-
+#       quay.io/opendatahub-contrib/workbench-images:cuda-jupyter-datascience-ubi9-py39_2023b_latest
+#   from:
+#     kind: DockerImage
+#     name: >-
+#       quay.io/opendatahub-contrib/workbench-images:cuda-jupyter-datascience-ubi9-py39_2023b_latest
+#   importPolicy:
+#     importMode: Legacy
+#   referencePolicy:
+#     type: Source
+# generation: 2
+# lookupPolicy:
+#   local: true
