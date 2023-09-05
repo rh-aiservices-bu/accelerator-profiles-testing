@@ -8,10 +8,10 @@ spec:
   displayName: Habana HPU - 1st Gen Gaudi
   description: First Generation Gaudi device
   enabled: true
-  identifier: habana.ai/gaudi1stgen
+  identifier: habana.ai/gaudi
   tolerations:
     - effect: NoSchedule
-      key: habana.ai/gaudi1stgen
+      key: habana.ai/gaudi
       operator: Exists
 ---
 apiVersion: dashboard.opendatahub.io/v1alpha
@@ -23,10 +23,10 @@ spec:
   displayName: Habana HPU - 2nd Gen Gaudi
   description: Gaudi2 device
   enabled: true
-  identifier: habana.ai/gaudi
+  identifier: habana.ai/gaudi2
   tolerations:
     - effect: NoSchedule
-      key: habana.ai/gaudi
+      key: habana.ai/gaudi2
       operator: Exists
 ---
 apiVersion: dashboard.opendatahub.io/v1alpha
