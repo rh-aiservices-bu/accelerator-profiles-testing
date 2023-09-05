@@ -22,5 +22,11 @@ Ensure you are cluster-admin and have a working `oc` command.
 
     ```bash
     GH_ROOT="https://raw.githubusercontent.com/rh-aiservices-bu/accelerator-profiles-testing/main/manifests"
-    echo oc apply -f ${GH_ROOT}/acc_profiles.yaml
+    oc apply -f ${GH_ROOT}/acc_profiles.yaml
+    ```
+
+* If you need to delete them:
+
+    ```bash
+    oc -n redhat-ods-applications delete acceleratorprofile
     ```

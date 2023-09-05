@@ -2,10 +2,10 @@
 apiVersion: dashboard.opendatahub.io/v1alpha
 kind: AcceleratorProfile
 metadata:
-  name: hbu-profile-first-gen
+  name: hpu-profile-first-gen-gaudi
   namespace: redhat-ods-applications
 spec:
-  displayName: Habana HBU - 1st Gen Gaudi
+  displayName: Habana HPU - 1st Gen Gaudi
   description: First Generation Gaudi device
   enabled: true
   identifier: habana.ai/gaudi1stgen
@@ -17,10 +17,10 @@ spec:
 apiVersion: dashboard.opendatahub.io/v1alpha
 kind: AcceleratorProfile
 metadata:
-  name: hbu-profile-gaudi2
+  name: hpu-profile-gaudi
   namespace: redhat-ods-applications
 spec:
-  displayName: Habana HBU - 2nd Gen Gaudi
+  displayName: Habana HPU - 2nd Gen Gaudi
   description: Gaudi2 device
   enabled: true
   identifier: habana.ai/gaudi
@@ -36,7 +36,7 @@ metadata:
   namespace: redhat-ods-applications
 spec:
   displayName: Intel® Data Center GPU Flex Series
-  description: Intel device
+  description: Ideal for Model Serving purposes
   enabled: true
   identifier: intel.com/flex
   tolerations:
@@ -51,7 +51,7 @@ metadata:
   namespace: redhat-ods-applications
 spec:
   displayName: Intel® Data Center GPU Max Series
-  description: Intel device
+  description: Ideal for Model Training purposes
   enabled: true
   identifier: intel.com/max
   tolerations:
