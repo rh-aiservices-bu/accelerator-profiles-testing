@@ -1,0 +1,29 @@
+---
+apiVersion: dashboard.opendatahub.io/v1alpha
+kind: AcceleratorProfile
+metadata:
+  name: hbu-profile-first-gen
+spec:
+  description: First Generation Gaudi device
+  displayName: Habana HBU - 1st Gen Gaudi
+  enabled: true
+  identifier: habana.ai/gaudi1stgen
+  tolerations:
+    - effect: NoSchedule
+      key: habana.ai/gaudi1stgen
+      operator: Exists
+---
+apiVersion: dashboard.opendatahub.io/v1alpha
+kind: AcceleratorProfile
+metadata:
+  name: hbu-profile-gaudi2
+spec:
+  description: Gaudi2 device
+  displayName: Habana HBU - 2nd Gen Gaudi
+  enabled: true
+  identifier: habana.ai/gaudi
+  tolerations:
+    - effect: NoSchedule
+      key: habana.ai/gaudi
+      operator: Exists
+
