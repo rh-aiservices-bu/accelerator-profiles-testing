@@ -18,4 +18,9 @@ Ensure you are cluster-admin and have a working `oc` command.
 
 ## Creating the sample accelerator profiles
 
+* Apply the YAML directly from the `main` branch of the github repo:
 
+    ```bash
+    GH_ROOT="https://raw.githubusercontent.com/rh-aiservices-bu/accelerator-profiles-testing/main/manifests"
+    echo oc apply -f ${GH_ROOT}/acc_profiles.yaml
+    ```
