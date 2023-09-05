@@ -4,7 +4,7 @@ apiVersion: image.openshift.io/v1
 metadata:
   name: custom-test-habana-fake-image-01
   annotations:
-    opendatahub.io/notebook-image-name: Test Habana Fake Image 01
+    opendatahub.io/notebook-image-name: "CUSTOM: Test Habana Fake Image 01"
     opendatahub.io/recommended-accelerators: '["habana.ai/gaudi"]'
     opendatahub.io/notebook-image-creator: egranger@redhat.com
     opendatahub.io/notebook-image-desc: >-
@@ -40,7 +40,7 @@ apiVersion: image.openshift.io/v1
 metadata:
   name: custom-test-habana-fake-image-02
   annotations:
-    opendatahub.io/notebook-image-name: Test Habana Fake Image 02
+    opendatahub.io/notebook-image-name: "CUSTOM: Test Habana Fake Image 02"
     opendatahub.io/recommended-accelerators: '["habana.ai/gaudi2"]'
     opendatahub.io/notebook-image-creator: egranger@redhat.com
     opendatahub.io/notebook-image-desc: >-
