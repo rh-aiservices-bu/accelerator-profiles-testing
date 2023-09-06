@@ -1,9 +1,18 @@
-# accelerator-profiles-testing
-A repository to help with Accelerator Profiles
+# Content for testing Accelerator Profiles features in RHODS/ODH
+
+This repository is a draft of the sort of content you'd need in order to test/experiment with Accelerator Profiles.
+
+Notes:
+* for now, the `identifiers` defined in the YAML files are probably not all accurate, and will need to be adjusted. If you know what the right values are, open an issue.
+* this does not include the taints that you should apply to your nodes in order to finely target nodes.
+
+## Requirements
+
+### OC cli and Cluster-Admin
 
 Ensure you are cluster-admin and have a working `oc` command.
 
-## Ensure the Acc Profile CRD exists
+### Ensure the Accelerator Profile CRD exists
 
 * execute:
 
@@ -19,7 +28,7 @@ Ensure you are cluster-admin and have a working `oc` command.
     bash-4.4 ~ $
     ```
 
-## Ensure you know in which namespace you are supposed to deploy these extra YAMLs
+### Ensure you know in which namespace you are supposed to deploy these extra YAMLs
 
 * You should set the `NS` parameter to either `opendatahub` or `redhat-ods-applications`, depending on which cluster you are working in.
 
