@@ -3,7 +3,6 @@ apiVersion: dashboard.opendatahub.io/v1alpha
 kind: AcceleratorProfile
 metadata:
   name: hpu-profile-first-gen-gaudi
-  namespace: redhat-ods-applications
 spec:
   displayName: Habana HPU - 1st Gen Gaudi
   description: First Generation Gaudi device
@@ -18,7 +17,6 @@ apiVersion: dashboard.opendatahub.io/v1alpha
 kind: AcceleratorProfile
 metadata:
   name: hpu-profile-gaudi
-  namespace: redhat-ods-applications
 spec:
   displayName: Habana HPU - 2nd Gen Gaudi
   description: Gaudi2 device
@@ -33,7 +31,6 @@ apiVersion: dashboard.opendatahub.io/v1alpha
 kind: AcceleratorProfile
 metadata:
   name: gpu-flex-series
-  namespace: redhat-ods-applications
 spec:
   displayName: Intel® Data Center GPU Flex Series
   description: Ideal for Model Serving purposes
@@ -48,7 +45,6 @@ apiVersion: dashboard.opendatahub.io/v1alpha
 kind: AcceleratorProfile
 metadata:
   name: gpu-max-series
-  namespace: redhat-ods-applications
 spec:
   displayName: Intel® Data Center GPU Max Series
   description: Ideal for Model Training purposes

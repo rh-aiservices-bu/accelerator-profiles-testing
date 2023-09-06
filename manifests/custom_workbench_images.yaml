@@ -11,7 +11,6 @@ metadata:
       quay.io/opendatahub-contrib/workbench-images:cuda-jupyter-datascience-ubi9-py39_2023b_latest
     opendatahub.io/notebook-image-url: >-
       quay.io/opendatahub-contrib/workbench-images:cuda-jupyter-datascience-ubi9-py39_2023b_latest
-  namespace: redhat-ods-applications
   labels:
     app.kubernetes.io/created-by: byon
     opendatahub.io/dashboard: 'true'
@@ -47,7 +46,6 @@ metadata:
       quay.io/opendatahub-contrib/workbench-images:cuda-jupyter-datascience-ubi9-py39_2023b_latest
     opendatahub.io/notebook-image-url: >-
       quay.io/opendatahub-contrib/workbench-images:cuda-jupyter-datascience-ubi9-py39_2023b_latest
-  namespace: redhat-ods-applications
   labels:
     app.kubernetes.io/created-by: byon
     opendatahub.io/dashboard: 'true'
@@ -78,7 +76,6 @@ spec:
 # metadata:
 #   name: >-
 #     custom-test-habana-fake-image:cuda-jupyter-datascience-ubi9-py39_2023b_latest
-#   namespace: redhat-ods-applications
 #   labels:
 #     app.kubernetes.io/created-by: byon
 #     opendatahub.io/dashboard: 'true'
