@@ -76,4 +76,11 @@ Ensure you are cluster-admin and have a working `oc` command.
     oc  -n ${NS}  apply -f ${GH_ROOT}/custom_workbench_images.yaml
     ```
 
+## Adding a couple NVIDIA examples too
 
+* Apply the YAML directly from the `main` branch of the github repo:
+
+    ```bash
+    GH_ROOT="https://raw.githubusercontent.com/rh-aiservices-bu/accelerator-profiles-testing/main/manifests"
+    oc  -n ${NS}  apply -f ${GH_ROOT}/nvidia_examples.yaml
+    ```

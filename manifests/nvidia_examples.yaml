@@ -1,0 +1,28 @@
+---
+apiVersion: dashboard.opendatahub.io/v1alpha
+kind: AcceleratorProfile
+metadata:
+  name: nvidia-gpu-a100
+spec:
+  displayName: NVIDIA A100
+  description: Tensor Core GPU
+  enabled: true
+  identifier: nvidia.com/gpu
+  tolerations:
+    - effect: NoSchedule
+      key: nvidia.com/gpu-a100
+      operator: Exists
+---
+apiVersion: dashboard.opendatahub.io/v1alpha
+kind: AcceleratorProfile
+metadata:
+  name: nvidia-gpu-v100
+spec:
+  displayName: NVIDIA V100
+  description: Tensor Core GPU
+  enabled: true
+  identifier: nvidia.com/gpu
+  tolerations:
+    - effect: NoSchedule
+      key: nvidia.com/gpu-v100
+      operator: Exists
