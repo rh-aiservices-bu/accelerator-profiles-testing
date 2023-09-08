@@ -12,6 +12,7 @@
   - [Adding a couple NVIDIA examples too](#adding-a-couple-nvidia-examples-too)
   - [Adding an OpenVino runtime that prefers Intel FLEX GPUs](#adding-an-openvino-runtime-that-prefers-intel-flex-gpus)
   - [Confirming that Habana HPUs are truly being used](#confirming-that-habana-hpus-are-truly-being-used)
+  - [notes for later:](#notes-for-later)
 
 
 This repository is a draft of the sort of content you'd need in order to test/experiment with Accelerator Profiles.
@@ -132,3 +133,6 @@ placeholder for instructions
   * <https://github.com/HabanaAI/Gaudi2-Workshop>
   * <https://github.com/HabanaAI/Gaudi-tutorials>
 
+## notes for later:
+
+look into NVIDIA GPU simulator: <https://issues.redhat.com/browse/NVIDIA-50>
