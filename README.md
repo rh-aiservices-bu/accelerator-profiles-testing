@@ -1,5 +1,17 @@
 # Content for testing Accelerator Profiles features in RHODS/ODH
 
+- [Content for testing Accelerator Profiles features in RHODS/ODH](#content-for-testing-accelerator-profiles-features-in-rhodsodh)
+  - [Requirements](#requirements)
+    - [OC cli and Cluster-Admin](#oc-cli-and-cluster-admin)
+    - [Ensure the Accelerator Profile CRD exists](#ensure-the-accelerator-profile-crd-exists)
+    - [Ensure you know in which namespace you are supposed to deploy these extra YAMLs](#ensure-you-know-in-which-namespace-you-are-supposed-to-deploy-these-extra-yamls)
+  - [Applying the fix (temporary)](#applying-the-fix-temporary)
+  - [Creating the sample accelerator profiles](#creating-the-sample-accelerator-profiles)
+  - [Creating some dummy custom images with the profile annotations](#creating-some-dummy-custom-images-with-the-profile-annotations)
+  - [Adding a couple NVIDIA examples too](#adding-a-couple-nvidia-examples-too)
+  - [Adding an OpenVino runtime that prefers Intel FLEX GPUs](#adding-an-openvino-runtime-that-prefers-intel-flex-gpus)
+
+
 This repository is a draft of the sort of content you'd need in order to test/experiment with Accelerator Profiles.
 
 Notes:
@@ -54,11 +66,14 @@ Ensure you are cluster-admin and have a working `oc` command.
 
 ## Applying the fix (temporary)
 
+**Note:** This fix is hopefully no longer required. Please do not apply it and confirm that it works without it.
+
 * Apply the YAML directly from the `main` branch of the github repo:
 
     ```bash
-    GH_ROOT="https://raw.githubusercontent.com/rh-aiservices-bu/accelerator-profiles-testing/main/manifests"
-    oc -n ${NS} apply -f ${GH_ROOT}/fix_acc_profiles.yaml
+    ## do not apply this. Confirm it works for a regular (non cluster-admin) user
+    # GH_ROOT="https://raw.githubusercontent.com/rh-aiservices-bu/accelerator-profiles-testing/main/manifests"
+    # oc -n ${NS} apply -f ${GH_ROOT}/fix_acc_profiles.yaml
     ```
 
 ## Creating the sample accelerator profiles
