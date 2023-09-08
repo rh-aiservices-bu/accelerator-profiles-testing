@@ -11,6 +11,7 @@
   - [Creating some dummy custom images with the profile annotations](#creating-some-dummy-custom-images-with-the-profile-annotations)
   - [Adding a couple NVIDIA examples too](#adding-a-couple-nvidia-examples-too)
   - [Adding an OpenVino runtime that prefers Intel FLEX GPUs](#adding-an-openvino-runtime-that-prefers-intel-flex-gpus)
+  - [Confirming that Habana HPUs are truly being used](#confirming-that-habana-hpus-are-truly-being-used)
 
 
 This repository is a draft of the sort of content you'd need in order to test/experiment with Accelerator Profiles.
@@ -124,3 +125,10 @@ placeholder for instructions
     GH_ROOT="https://raw.githubusercontent.com/rh-aiservices-bu/accelerator-profiles-testing/main/manifests"
     oc  -n ${NS}  apply -f ${GH_ROOT}/serving_runtime.yaml
     ```
+
+## Confirming that Habana HPUs are truly being used
+
+* not sure here. maybe these repos can help
+  * <https://github.com/HabanaAI/Gaudi2-Workshop>
+  * <https://github.com/HabanaAI/Gaudi-tutorials>
+
