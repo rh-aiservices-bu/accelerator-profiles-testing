@@ -93,3 +93,12 @@ Ensure you are cluster-admin and have a working `oc` command.
     GH_ROOT="https://raw.githubusercontent.com/rh-aiservices-bu/accelerator-profiles-testing/main/manifests"
     oc  -n ${NS}  apply -f ${GH_ROOT}/nvidia_examples.yaml
     ```
+
+## Adding an OpenVino runtime that prefers Intel FLEX GPUs
+
+* Apply the YAML directly from the `main` branch of the github repo:
+
+    ```bash
+    GH_ROOT="https://raw.githubusercontent.com/rh-aiservices-bu/accelerator-profiles-testing/main/manifests"
+    oc  -n ${NS}  apply -f ${GH_ROOT}/serving_runtime.yaml
+    ```
