@@ -3,6 +3,7 @@
 - [Content for testing Accelerator Profiles features in RHODS/ODH](#content-for-testing-accelerator-profiles-features-in-rhodsodh)
   - [Requirements](#requirements)
     - [OC cli and Cluster-Admin](#oc-cli-and-cluster-admin)
+    - [Install the live-build cut of RHODS in that cluster](#install-the-live-build-cut-of-rhods-in-that-cluster)
     - [Ensure the Accelerator Profile CRD exists](#ensure-the-accelerator-profile-crd-exists)
     - [Ensure you know in which namespace you are supposed to deploy these extra YAMLs](#ensure-you-know-in-which-namespace-you-are-supposed-to-deploy-these-extra-yamls)
   - [Applying the fix (temporary)](#applying-the-fix-temporary)
@@ -23,6 +24,12 @@ Notes:
 ### OC cli and Cluster-Admin
 
 Ensure you are cluster-admin and have a working `oc` command.
+
+### Install the live-build cut of RHODS in that cluster
+
+```
+placeholder for instructions
+```
 
 ### Ensure the Accelerator Profile CRD exists
 
