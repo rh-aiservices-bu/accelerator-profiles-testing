@@ -6,7 +6,6 @@
     - [Install the live-build cut of RHODS in that cluster](#install-the-live-build-cut-of-rhods-in-that-cluster)
     - [Ensure the Accelerator Profile CRD exists](#ensure-the-accelerator-profile-crd-exists)
     - [Ensure you know in which namespace you are supposed to deploy these extra YAMLs](#ensure-you-know-in-which-namespace-you-are-supposed-to-deploy-these-extra-yamls)
-  - [Applying the fix (temporary)](#applying-the-fix-temporary)
   - [Creating the sample accelerator profiles](#creating-the-sample-accelerator-profiles)
   - [Creating some dummy custom images with the profile annotations](#creating-some-dummy-custom-images-with-the-profile-annotations)
   - [Adding a couple NVIDIA examples too](#adding-a-couple-nvidia-examples-too)
@@ -73,6 +72,7 @@ placeholder for instructions
     echo "Selected namespace: $NS"
     ```
 
+<!--
 ## Applying the fix (temporary)
 
 **Note:** This fix is hopefully no longer required. Please do not apply it and confirm that it works without it.
@@ -84,6 +84,7 @@ placeholder for instructions
     # GH_ROOT="https://raw.githubusercontent.com/rh-aiservices-bu/accelerator-profiles-testing/main/manifests"
     # oc -n ${NS} apply -f ${GH_ROOT}/fix_acc_profiles.yaml
     ```
+ -->
 
 ## Creating the sample accelerator profiles
 
