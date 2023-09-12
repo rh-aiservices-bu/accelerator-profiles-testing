@@ -56,7 +56,6 @@ kind: Template
 apiVersion: template.openshift.io/v1
 metadata:
   name: template-ovms-gpu-acc-profile-test
-  namespace: opendatahub
   labels:
     opendatahub.io/dashboard: 'true'
 objects:
