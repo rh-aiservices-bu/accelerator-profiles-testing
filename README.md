@@ -4,11 +4,12 @@
   - [Requirements](#requirements)
     - [OC cli and Cluster-Admin](#oc-cli-and-cluster-admin)
     - [Install the live-build cut of RHODS in that cluster](#install-the-live-build-cut-of-rhods-in-that-cluster)
-    - [Ensure the Accelerator Profile CRD exists](#ensure-the-accelerator-profile-crd-exists)
-    - [Ensure you know in which namespace you are supposed to deploy these extra YAMLs](#ensure-you-know-in-which-namespace-you-are-supposed-to-deploy-these-extra-yamls)
+  - [Ensure you know in which namespace you are supposed to deploy these extra YAMLs](#ensure-you-know-in-which-namespace-you-are-supposed-to-deploy-these-extra-yamls)
   - [Applying the fixes (temporary)](#applying-the-fixes-temporary)
     - [Create CRD:](#create-crd)
-  - [Creating the sample accelerator profiles](#creating-the-sample-accelerator-profiles)
+    - [this piece is likely needed for things to work for non-admin users](#this-piece-is-likely-needed-for-things-to-work-for-non-admin-users)
+  - [Ensure the Accelerator Profile CRD exists](#ensure-the-accelerator-profile-crd-exists)
+  - [Creating some sample accelerator profiles](#creating-some-sample-accelerator-profiles)
   - [Creating some dummy custom images with the profile annotations](#creating-some-dummy-custom-images-with-the-profile-annotations)
   - [Adding a couple NVIDIA examples too](#adding-a-couple-nvidia-examples-too)
   - [Adding an OpenVino runtime that prefers Intel FLEX GPUs](#adding-an-openvino-runtime-that-prefers-intel-flex-gpus)
@@ -35,27 +36,14 @@ GH_ROOT="https://raw.githubusercontent.com/rh-aiservices-bu/accelerator-profiles
 oc apply -f ${GH_ROOT}/rhods-1.33-livebuild.yaml
 ```
 
-### Ensure the Accelerator Profile CRD exists
+give the pods enough time to start up
 
-* execute:
-
-    ```bash
-    oc get crd | grep -i acceleratorprofile
-    ```
-
-* should return
-
-    ```bash
-    bash-4.4 ~ $ oc get crd | grep -i acceleratorprofile
-    acceleratorprofiles.dashboard.opendatahub.io                                       2023-08-25T18:44:23Z
-    bash-4.4 ~ $
-    ```
-
-### Ensure you know in which namespace you are supposed to deploy these extra YAMLs
+## Ensure you know in which namespace you are supposed to deploy these extra YAMLs
 
 * You should set the `NS` parameter to either `opendatahub` or `redhat-ods-applications`, depending on which cluster you are working in.
+* If you used the above-mentionned RHODS live build, it's likely to be `redhat-ods-applications`.
 
-* execute:
+* If you're not sure, you can execute:
 
     ```bash
     if oc get namespace opendatahub >/dev/null 2>&1 && oc get namespace redhat-ods-applications >/dev/null 2>&1; then
@@ -75,19 +63,22 @@ oc apply -f ${GH_ROOT}/rhods-1.33-livebuild.yaml
     echo "Selected namespace: $NS"
     ```
 
+From this point on, make sure the `NS` environment has the right value.
+
 ## Applying the fixes (temporary)
 
 ### Create CRD:
 
-apply this to get the CRD
+* apply this to get the CRD
 
-```bash
-oc apply -f https://raw.githubusercontent.com/opendatahub-io/odh-dashboard/f/accelerator-support/manifests/crd/acceleratorprofiles.opendatahub.io.crd.yaml
-```
+    ```bash
+    oc apply -f https://raw.githubusercontent.com/opendatahub-io/odh-dashboard/f/accelerator-support/manifests/crd/acceleratorprofiles.opendatahub.io.crd.yaml
+    ```
 
-so far, seems to be required still:
+### this piece is likely needed for things to work for non-admin users
 
-* Apply the YAML directly from the `main` branch of the github repo:
+* so far, seems to be required still:
+* Apply this:
 
     ```bash
     ## do not apply this. Confirm it works for a regular (non cluster-admin) user
@@ -95,7 +86,25 @@ so far, seems to be required still:
     oc -n ${NS} apply -f ${GH_ROOT}/fix_acc_profiles.yaml
     ```
 
-## Creating the sample accelerator profiles
+## Ensure the Accelerator Profile CRD exists
+
+* execute:
+
+    ```bash
+    oc get crd | grep -i acceleratorprofile
+    ```
+
+* should return
+
+    ```bash
+    bash-4.4 ~ $ oc get crd | grep -i acceleratorprofile
+    acceleratorprofiles.dashboard.opendatahub.io                                       2023-08-25T18:44:23Z
+    bash-4.4 ~ $
+    ```
+
+* if you don't see the line above, probably not worth continuing
+
+## Creating some sample accelerator profiles
 
 * Apply the YAML directly from the `main` branch of the github repo:
 
