@@ -6,6 +6,8 @@
     - [Install the live-build cut of RHODS in that cluster](#install-the-live-build-cut-of-rhods-in-that-cluster)
     - [Ensure the Accelerator Profile CRD exists](#ensure-the-accelerator-profile-crd-exists)
     - [Ensure you know in which namespace you are supposed to deploy these extra YAMLs](#ensure-you-know-in-which-namespace-you-are-supposed-to-deploy-these-extra-yamls)
+  - [Applying the fixes (temporary)](#applying-the-fixes-temporary)
+    - [Create CRD:](#create-crd)
   - [Creating the sample accelerator profiles](#creating-the-sample-accelerator-profiles)
   - [Creating some dummy custom images with the profile annotations](#creating-some-dummy-custom-images-with-the-profile-annotations)
   - [Adding a couple NVIDIA examples too](#adding-a-couple-nvidia-examples-too)
@@ -73,23 +75,25 @@ oc apply -f ${GH_ROOT}/rhods-1.33-livebuild.yaml
     echo "Selected namespace: $NS"
     ```
 
-<!--
-## Applying the fix (temporary)
+## Applying the fixes (temporary)
 
-**Note:** This fix is hopefully no longer required. Please do not apply it and confirm that it works without it.
+### Create CRD:
+
+apply this to get the CRD
+
+```bash
+oc apply -f https://raw.githubusercontent.com/opendatahub-io/odh-dashboard/f/accelerator-support/manifests/crd/acceleratorprofiles.opendatahub.io.crd.yaml
+```
+
+so far, seems to be required still:
 
 * Apply the YAML directly from the `main` branch of the github repo:
 
     ```bash
     ## do not apply this. Confirm it works for a regular (non cluster-admin) user
-    # GH_ROOT="https://raw.githubusercontent.com/rh-aiservices-bu/accelerator-profiles-testing/main/manifests"
-    # oc -n ${NS} apply -f ${GH_ROOT}/fix_acc_profiles.yaml
+    GH_ROOT="https://raw.githubusercontent.com/rh-aiservices-bu/accelerator-profiles-testing/main/manifests"
+    oc -n ${NS} apply -f ${GH_ROOT}/fix_acc_profiles.yaml
     ```
-
-Not sure if we need this:
-https://raw.githubusercontent.com/opendatahub-io/odh-dashboard/f/accelerator-support/manifests/crd/acceleratorprofiles.opendatahub.io.crd.yaml
-
--->
 
 ## Creating the sample accelerator profiles
 
