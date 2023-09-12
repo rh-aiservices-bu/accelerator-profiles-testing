@@ -16,6 +16,7 @@
   - [Adding an OpenVino runtime that prefers Intel FLEX GPUs](#adding-an-openvino-runtime-that-prefers-intel-flex-gpus)
   - [Confirming that Habana HPUs are truly being used](#confirming-that-habana-hpus-are-truly-being-used)
   - [notes for later:](#notes-for-later)
+  - [uninstall live build](#uninstall-live-build)
 
 
 This repository is a draft of the sort of content you'd need in order to test/experiment with Accelerator Profiles.
@@ -162,3 +163,26 @@ From this point on, make sure the `NS` environment variable has the right value.
 ## notes for later:
 
 look into NVIDIA GPU simulator: <https://issues.redhat.com/browse/NVIDIA-50>
+
+## uninstall live build
+
+This will remove RHODS from the cluster.
+
+draft instructions (probably slightly incomplete):
+
+```bash
+## acc profiles deletion
+oc -n redhat-ods-applications delete acceleratorprofiles --all
+
+# rhods uninstall
+oc create configmap delete-self-managed-odh -n redhat-ods-operator
+oc label configmap/delete-self-managed-odh api.openshift.com/addon-managed-odh-delete=true -n redhat-ods-operator
+PROJECT_NAME=redhat-ods-applications
+while oc get project $PROJECT_NAME &> /dev/null; do
+  echo "$PROJECT_NAME still exists"
+  sleep 1
+done
+echo "$PROJECT_NAME no longer exists"
+oc delete namespace redhat-ods-operator
+
+```
