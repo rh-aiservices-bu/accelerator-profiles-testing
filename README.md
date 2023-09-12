@@ -85,7 +85,11 @@ oc apply -f ${GH_ROOT}/rhods-1.33-livebuild.yaml
     # GH_ROOT="https://raw.githubusercontent.com/rh-aiservices-bu/accelerator-profiles-testing/main/manifests"
     # oc -n ${NS} apply -f ${GH_ROOT}/fix_acc_profiles.yaml
     ```
- -->
+
+Not sure if we need this:
+https://raw.githubusercontent.com/opendatahub-io/odh-dashboard/f/accelerator-support/manifests/crd/acceleratorprofiles.opendatahub.io.crd.yaml
+
+-->
 
 ## Creating the sample accelerator profiles
 
