@@ -17,7 +17,8 @@ items:
         publisher: RHODS Development Catalog
         # image: quay.io/modh/qe-catalog-source:latest
         # image: quay.io/lferrnan/odh-model-controller-container-live:1.33.0-habana
-        image: quay.io/lferrnan/rhods-operator-live-bundle:rhods-1.33.0-habana
+        # image: quay.io/lferrnan/rhods-operator-live-bundle:rhods-1.33.0-habana
+        image: quay.io/lferrnan/rhods-operator-live-catalog:1.33.0-habana
         sourceType: grpc
   -   apiVersion: operators.coreos.com/v1alpha1
       kind: Subscription
