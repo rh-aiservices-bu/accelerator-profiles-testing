@@ -29,7 +29,8 @@ Ensure you are cluster-admin and have a working `oc` command.
 ### Install the live-build cut of RHODS in that cluster
 
 ```
-placeholder for instructions
+GH_ROOT="https://raw.githubusercontent.com/rh-aiservices-bu/accelerator-profiles-testing/main/manifests"
+oc apply -f ${GH_ROOT}/rhods-1.33-livebuild.yaml
 ```
 
 ### Ensure the Accelerator Profile CRD exists

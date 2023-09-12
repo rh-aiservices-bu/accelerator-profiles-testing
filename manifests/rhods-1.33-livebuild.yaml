@@ -1,0 +1,48 @@
+#RHODS_OPERATOR_NAMESPACE="redhat-ods-operator"
+#RHODS_APPS_NAMESPACE="redhat-ods-applications"
+#RHODS_MONITORING_NAMESPACE="redhat-ods-monitoring"
+---
+kind: List
+metadata: {}
+apiVersion: v1
+items:
+  -   apiVersion: project.openshift.io/v1
+      kind: Project
+      metadata:
+          name: redhat-ods-operator
+  -   apiVersion: operators.coreos.com/v1alpha1
+      kind: CatalogSource
+      metadata:
+        name: addon-managed-odh-catalog
+      spec:
+        displayName: Red Hat OpenShift Data Science
+        publisher: RHODS Addons Development Catalog
+        # image: quay.io/modh/qe-catalog-source:latest
+        image: quay.io/lferrnan/odh-model-controller-container-live:1.33.0-habana
+        sourceType: grpc
+  # -   apiVersion: operators.coreos.com/v1alpha1
+  #     kind: Subscription
+  #     metadata:
+  #         name: rhods-operator
+  #         namespace: redhat-ods-operator
+  #     spec:
+  #         channel: stable
+  #         installPlanApproval: Manual
+  #         name: rhods-operator
+  #         source: redhat-operators
+  #         sourceNamespace: openshift-marketplace
+  #         startingCSV: rhods-operator.1.27.0
+  -   apiVersion: operators.coreos.com/v1alpha1
+      kind: Subscription
+      metadata:
+        name: addon-managed-odh
+      spec:
+        name: rhods-operator
+        channel: beta
+        source: addon-managed-odh-catalog
+        sourceNamespace: redhat-ods-operator
+  -   apiVersion: operators.coreos.com/v1
+      kind: OperatorGroup
+      metadata:
+          name: redhat-operators
+          namespace: redhat-ods-operator
