@@ -13,10 +13,10 @@ items:
   -   apiVersion: operators.coreos.com/v1alpha1
       kind: CatalogSource
       metadata:
-        name: addon-managed-odh-catalog
+        name: rhods-catalog-dev
       spec:
         displayName: Red Hat OpenShift Data Science
-        publisher: RHODS Addons Development Catalog
+        publisher: RHODS Development Catalog
         # image: quay.io/modh/qe-catalog-source:latest
         image: quay.io/lferrnan/odh-model-controller-container-live:1.33.0-habana
         sourceType: grpc
@@ -35,14 +35,14 @@ items:
   -   apiVersion: operators.coreos.com/v1alpha1
       kind: Subscription
       metadata:
-        name: addon-managed-odh
+        name: rhods-operator-dev
       spec:
         name: rhods-operator
         channel: beta
-        source: addon-managed-odh-catalog
+        source: rhods-catalog-dev
         sourceNamespace: redhat-ods-operator
   -   apiVersion: operators.coreos.com/v1
       kind: OperatorGroup
       metadata:
-          name: redhat-operators
+          name: rhods-operator-dev
           namespace: redhat-ods-operator
