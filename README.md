@@ -2,9 +2,10 @@
 
 - [Content for testing Accelerator Profiles features in RHODS/ODH](#content-for-testing-accelerator-profiles-features-in-rhodsodh)
   - [Requirements](#requirements)
+    - [not already having RHODS](#not-already-having-rhods)
     - [OC cli and Cluster-Admin](#oc-cli-and-cluster-admin)
     - [Install the live-build cut of RHODS in that cluster](#install-the-live-build-cut-of-rhods-in-that-cluster)
-  - [Ensure you know in which namespace you are supposed to deploy these extra YAMLs](#ensure-you-know-in-which-namespace-you-are-supposed-to-deploy-these-extra-yamls)
+  - [Pick the right target namespace](#pick-the-right-target-namespace)
   - [Applying the fixes (temporary)](#applying-the-fixes-temporary)
     - [Create CRD:](#create-crd)
     - [this piece is likely needed for things to work for non-admin users](#this-piece-is-likely-needed-for-things-to-work-for-non-admin-users)
@@ -25,24 +26,30 @@ Notes:
 
 ## Requirements
 
+### not already having RHODS
+
+Ensure your cluster does not already have RHODS running in it. These instructions will setup a pre-release cut of RHODS and assume the cluster has neither RHODS nor ODH in it.
+
 ### OC cli and Cluster-Admin
 
 Ensure you are cluster-admin and have a working `oc` command.
 
 ### Install the live-build cut of RHODS in that cluster
 
-```
-GH_ROOT="https://raw.githubusercontent.com/rh-aiservices-bu/accelerator-profiles-testing/main/manifests"
-oc apply -f ${GH_ROOT}/rhods-1.33-livebuild.yaml
-```
+* The command below will kick off the RHODS live build install.
+* Allow 5-10 minutes for it to complete
 
-give the pods enough time to start up
+    ```bash
+    GH_ROOT="https://raw.githubusercontent.com/rh-aiservices-bu/accelerator-profiles-testing/main/manifests"
+    oc apply -f ${GH_ROOT}/rhods-1.33-livebuild.yaml
+    ```
 
-## Ensure you know in which namespace you are supposed to deploy these extra YAMLs
+## Pick the right target namespace
 
-* You should set the `NS` parameter to either `opendatahub` or `redhat-ods-applications`, depending on which cluster you are working in.
-* If you used the above-mentionned RHODS live build, it's likely to be `redhat-ods-applications`.
+The rest of these instructions will walk you through setting up extra resources in your cluster, and this has to be done in a specific namespace.
 
+* You should set the `NS` environment variable to either `opendatahub` or `redhat-ods-applications`, depending on which cluster you are working in, and where RHODS is running.
+* If you used the above-mentioned RHODS live build, it's likely to be `redhat-ods-applications`.
 * If you're not sure, you can execute:
 
     ```bash
@@ -63,7 +70,7 @@ give the pods enough time to start up
     echo "Selected namespace: $NS"
     ```
 
-From this point on, make sure the `NS` environment has the right value.
+From this point on, make sure the `NS` environment variable has the right value.
 
 ## Applying the fixes (temporary)
 
